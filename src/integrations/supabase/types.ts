@@ -14,7 +14,63 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      analysis_sessions: {
+        Row: {
+          acceleration_time_data: Json | null
+          ai_description: string | null
+          confidence: number | null
+          created_at: string
+          id: string
+          motion_type: Database["public"]["Enums"]["motion_type"] | null
+          motion_type_label: string | null
+          parameters: Json | null
+          position_time_data: Json | null
+          status: string
+          trajectory_data: Json | null
+          updated_at: string
+          velocity_time_data: Json | null
+          video_name: string
+          video_size: number | null
+          video_url: string
+        }
+        Insert: {
+          acceleration_time_data?: Json | null
+          ai_description?: string | null
+          confidence?: number | null
+          created_at?: string
+          id?: string
+          motion_type?: Database["public"]["Enums"]["motion_type"] | null
+          motion_type_label?: string | null
+          parameters?: Json | null
+          position_time_data?: Json | null
+          status?: string
+          trajectory_data?: Json | null
+          updated_at?: string
+          velocity_time_data?: Json | null
+          video_name: string
+          video_size?: number | null
+          video_url: string
+        }
+        Update: {
+          acceleration_time_data?: Json | null
+          ai_description?: string | null
+          confidence?: number | null
+          created_at?: string
+          id?: string
+          motion_type?: Database["public"]["Enums"]["motion_type"] | null
+          motion_type_label?: string | null
+          parameters?: Json | null
+          position_time_data?: Json | null
+          status?: string
+          trajectory_data?: Json | null
+          updated_at?: string
+          velocity_time_data?: Json | null
+          video_name?: string
+          video_size?: number | null
+          video_url?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +79,14 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      motion_type:
+        | "linear_uniform"
+        | "linear_accelerated"
+        | "circular"
+        | "projectile"
+        | "oscillation"
+        | "free_fall"
+        | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +213,16 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      motion_type: [
+        "linear_uniform",
+        "linear_accelerated",
+        "circular",
+        "projectile",
+        "oscillation",
+        "free_fall",
+        "other",
+      ],
+    },
   },
 } as const
