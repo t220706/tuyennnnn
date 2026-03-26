@@ -37,7 +37,7 @@ export default function HistoryPage() {
       .order("created_at", { ascending: false });
 
     if (filter !== "all") {
-      query = query.eq("motion_type", filter);
+      query = query.eq("motion_type", filter as any);
     }
 
     const { data } = await query;
